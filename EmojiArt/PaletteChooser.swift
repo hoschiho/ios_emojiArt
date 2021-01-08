@@ -13,6 +13,10 @@ struct PaletteChooser: View {
     @Binding var chosenPalette: String
     @State private var showPaletteEditor = false
     
+    @Binding var bgColor: Color
+
+
+    
     var body: some View {
         HStack {
             Stepper(onIncrement: {
@@ -25,11 +29,15 @@ struct PaletteChooser: View {
                 .onTapGesture {
                     self.showPaletteEditor = true
                 }
+            ColorPicker("",selection: $bgColor)
+            
                 .popover(isPresented: $showPaletteEditor ) {
                     PaletteEditor(chosenPalette: $chosenPalette, isShowing: self.$showPaletteEditor)
                         .environmentObject(self.document)
                         .frame(minWidth: 300, minHeight: 500)
                 }
+                
+                
         }
         .fixedSize(horizontal: true, vertical: false)
         .onAppear { self.chosenPalette = self.document.defaultPalette }
@@ -103,8 +111,3 @@ struct PaletteEditor: View {
 
 
 
-struct PaletteChoser_Previews: PreviewProvider {
-    static var previews: some View {
-        PaletteChooser(document: EmojiArtDocument(), chosenPalette: Binding.constant(""))
-    }
-}

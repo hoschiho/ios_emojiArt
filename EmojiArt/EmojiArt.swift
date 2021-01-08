@@ -8,6 +8,7 @@
 import Foundation
 
 struct EmojiArt: Codable {
+    //var bgColor: Color?
     var backgroundURL: URL?
     var emojis = [Emoji]()
     
