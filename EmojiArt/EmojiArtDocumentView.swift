@@ -11,6 +11,7 @@ struct EmojiArtDocumentView: View {
     @ObservedObject var document: EmojiArtDocument
     
     @State private var chosenPalette: String = ""
+
     
     init(document: EmojiArtDocument) {
         self.document = document
@@ -19,6 +20,8 @@ struct EmojiArtDocumentView: View {
 
     var body: some View {
         VStack {
+            EmojiArtTimer(document: document)
+
             HStack {
                 PaletteChooser(document: document, chosenPalette: $chosenPalette)
                 ScrollView(.horizontal){

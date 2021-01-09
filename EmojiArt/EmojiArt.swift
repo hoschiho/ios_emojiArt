@@ -10,6 +10,7 @@ import Foundation
 struct EmojiArt: Codable {
     var backgroundURL: URL?
     var emojis = [Emoji]()
+    var counter: Int?
     
     struct Emoji: Identifiable, Codable, Hashable {
         let text: String

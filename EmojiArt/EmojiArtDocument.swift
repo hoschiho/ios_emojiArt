@@ -40,6 +40,8 @@ class EmojiArtDocument: ObservableObject, Hashable, Identifiable
     
     
     @Published private(set) var backgroundImage: UIImage?
+    @Published private(set) var time: Int?
+
     
     @Published var steadyStateZoomScale: CGFloat = 1.0
     @Published var steadyStatePanOffset: CGSize = .zero
@@ -73,6 +75,18 @@ class EmojiArtDocument: ObservableObject, Hashable, Identifiable
         fetchBackgroundImageData()
         }
     }
+    
+    var counter: Int? {
+        get {
+            emojiArt.counter
+        }
+        
+        set {
+            emojiArt.counter = self.time
+        }
+            
+    }
+    
     private var fetchImageCancellable: AnyCancellable?
     
     private func fetchBackgroundImageData() {
