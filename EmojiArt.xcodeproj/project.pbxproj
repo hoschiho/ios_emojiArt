@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A603888125AB6ADB00CFEA29 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A603888025AB6ADB00CFEA29 /* UserDefaults+Extension.swift */; };
 		A61A54C025A1192A002B96D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A54BF25A1192A002B96D9 /* AppDelegate.swift */; };
 		A61A54C225A1192A002B96D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A54C125A1192A002B96D9 /* SceneDelegate.swift */; };
 		A61A54C425A1192A002B96D9 /* EmojiArtDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61A54C325A1192A002B96D9 /* EmojiArtDocumentView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A603888025AB6ADB00CFEA29 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		A61A54BC25A1192A002B96D9 /* EmojiArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A61A54BF25A1192A002B96D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A61A54C125A1192A002B96D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				A6C674EA25A9E63300BE38F9 /* EmojiArtTimer.swift */,
 				A61A54D425A11958002B96D9 /* EmojiArtDocument.swift */,
 				A6ED76C925A85DAE00F0F1EF /* EmojiArtDocumentChooser.swift */,
+				A603888025AB6ADB00CFEA29 /* UserDefaults+Extension.swift */,
 				A6ED76CC25A867BC00F0F1EF /* EditableText.swift */,
 				A6B7097825A61ED60039DB9C /* PaletteChooser.swift */,
 				A61A54C325A1192A002B96D9 /* EmojiArtDocumentView.swift */,
@@ -203,6 +206,7 @@
 				A6DD586525A38DF10044B08C /* AnimatableSystemFontModifier.swift in Sources */,
 				A6C674EB25A9E63300BE38F9 /* EmojiArtTimer.swift in Sources */,
 				A61A54D525A11958002B96D9 /* EmojiArtDocument.swift in Sources */,
+				A603888125AB6ADB00CFEA29 /* UserDefaults+Extension.swift in Sources */,
 				A6ED76C025A7B03200F0F1EF /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

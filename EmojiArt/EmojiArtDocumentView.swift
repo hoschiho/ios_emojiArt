@@ -11,7 +11,6 @@ struct EmojiArtDocumentView: View {
     @ObservedObject var document: EmojiArtDocument
     
     @State private var chosenPalette: String = ""
-    @State private var bgColor = Color.white
 
     
     init(document: EmojiArtDocument) {
@@ -23,7 +22,7 @@ struct EmojiArtDocumentView: View {
         VStack {
             EmojiArtTimer(document: document)
             HStack {
-                PaletteChooser(document: document, chosenPalette: $chosenPalette, bgColor: $bgColor)
+                PaletteChooser(document: document, chosenPalette: $chosenPalette)
                 ScrollView(.horizontal){
                     HStack {
                         ForEach(chosenPalette.map { String($0) }, id: \.self) { emoji in
@@ -36,7 +35,7 @@ struct EmojiArtDocumentView: View {
             }
             GeometryReader { geometry in
                 ZStack {
-                    bgColor.overlay(
+                    document.bgColor.overlay(
                         OptionalImage(uiImage: self.document.backgroundImage)
                             .scaleEffect(self.zoomScale)
                             .offset(self.panOffset)

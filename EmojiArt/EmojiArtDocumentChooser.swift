@@ -18,7 +18,6 @@ struct EmojiArtDocumentChooser: View {
     
         if showGridView == true {
 
-            
         NavigationView {
                 Grid(store.documents) { document in
                     NavigationLink(destination: EmojiArtDocumentView(document: document)
@@ -34,10 +33,6 @@ struct EmojiArtDocumentChooser: View {
                             }
                         }
                         .padding(7)
-
-
-
-
 
                     }
                 }

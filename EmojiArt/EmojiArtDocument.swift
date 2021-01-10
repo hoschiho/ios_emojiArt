@@ -12,7 +12,8 @@ import Combine
 class EmojiArtDocument: ObservableObject, Hashable, Identifiable
 {
     var defaultsKey: String = ""
-
+    
+    @Published var bgColor: Color
     @Published var counter = 0
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -36,15 +37,27 @@ class EmojiArtDocument: ObservableObject, Hashable, Identifiable
         
     private var autosaveCancellable: AnyCancellable?
     
+    private var autosaveCancellableForColor: AnyCancellable?
+
+    
     init(id: UUID? = nil) {
         self.id = id ?? UUID()
         defaultsKey = "EmojiArtDocument.\(self.id.uuidString)"
         emojiArt = EmojiArt(json: UserDefaults.standard.data(forKey: defaultsKey)) ?? EmojiArt()
+        
+        bgColor = Color(UserDefaults.standard.colorForKey(key: "\(self.defaultsKey)color") ?? UIColor(Color(.white)))
+
         autosaveCancellable = $emojiArt.sink { emojiArt in
             UserDefaults.standard.set(emojiArt.json, forKey: self.defaultsKey)
         }
         fetchBackgroundImageData()
+        
         self.counter = UserDefaults.standard.integer(forKey: "\(self.defaultsKey)counter")
+        
+        autosaveCancellableForColor = $bgColor.sink { bgColor in
+            UserDefaults.standard.setColor(color: UIColor(bgColor), forKey: "\(self.defaultsKey)color")
+        }
+
 
     }
     

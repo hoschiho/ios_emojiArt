@@ -13,7 +13,6 @@ struct PaletteChooser: View {
     @Binding var chosenPalette: String
     @State private var showPaletteEditor = false
     
-    @Binding var bgColor: Color
 
 
     
@@ -29,7 +28,7 @@ struct PaletteChooser: View {
                 .onTapGesture {
                     self.showPaletteEditor = true
                 }
-            ColorPicker("",selection: $bgColor)
+            ColorPicker("",selection: $document.bgColor)
             
                 .popover(isPresented: $showPaletteEditor ) {
                     PaletteEditor(chosenPalette: $chosenPalette, isShowing: self.$showPaletteEditor)
