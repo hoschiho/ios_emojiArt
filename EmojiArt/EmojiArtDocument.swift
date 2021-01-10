@@ -11,6 +11,14 @@ import Combine
 
 class EmojiArtDocument: ObservableObject, Hashable, Identifiable
 {
+    var defaultsKey: String = ""
+
+    @Published var counter = 0
+    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    
+    
+    
     static func == (lhs: EmojiArtDocument, rhs: EmojiArtDocument) -> Bool {
         lhs.id == rhs.id
     }
@@ -30,17 +38,37 @@ class EmojiArtDocument: ObservableObject, Hashable, Identifiable
     
     init(id: UUID? = nil) {
         self.id = id ?? UUID()
-        let defaultsKey = "EmojiArtDocument.\(self.id.uuidString)"
+        defaultsKey = "EmojiArtDocument.\(self.id.uuidString)"
         emojiArt = EmojiArt(json: UserDefaults.standard.data(forKey: defaultsKey)) ?? EmojiArt()
         autosaveCancellable = $emojiArt.sink { emojiArt in
-            UserDefaults.standard.set(emojiArt.json, forKey: defaultsKey)
+            UserDefaults.standard.set(emojiArt.json, forKey: self.defaultsKey)
         }
         fetchBackgroundImageData()
+        self.counter = UserDefaults.standard.integer(forKey: "\(self.defaultsKey)counter")
+
     }
+    
+    var timerCancellable: Cancellable?
+
+    
+    func startTimer() {
+            timerCancellable = timer.sink(
+                receiveValue: { result in
+                    UserDefaults.standard.set(self.counter, forKey: "\(self.defaultsKey)counter")
+                }
+            )
+            timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        }
+        
+        func stopTimer() {
+            timerCancellable?.cancel()
+            self.timer.upstream.connect().cancel()
+        }
+    
+    
     
     
     @Published private(set) var backgroundImage: UIImage?
-    //@Published private(set) var bgColor: UIColor
 
     
     @Published var steadyStateZoomScale: CGFloat = 1.0
@@ -75,6 +103,9 @@ class EmojiArtDocument: ObservableObject, Hashable, Identifiable
         fetchBackgroundImageData()
         }
     }
+    
+
+    
     private var fetchImageCancellable: AnyCancellable?
     
     private func fetchBackgroundImageData() {
