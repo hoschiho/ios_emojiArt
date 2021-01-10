@@ -114,7 +114,7 @@ struct EmojiArtPreview: View {
 
             GeometryReader { geometry in
                 ZStack {
-                    Color.white.overlay(
+                    document.bgColor.overlay(
                         OptionalImage(uiImage: self.document.backgroundImage)
                             .scaleEffect(self.zoomScale)
                             .offset(self.panOffset)
