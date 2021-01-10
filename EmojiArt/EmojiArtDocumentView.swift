@@ -21,7 +21,6 @@ struct EmojiArtDocumentView: View {
     var body: some View {
         VStack {
             EmojiArtTimer(document: document)
-
             HStack {
                 PaletteChooser(document: document, chosenPalette: $chosenPalette)
                 ScrollView(.horizontal){
@@ -84,6 +83,15 @@ struct EmojiArtDocumentView: View {
                 }))
                 }
             .zIndex(-1)
+        }
+        .onAppear() {
+            document.startTimer()
+        }
+        .onDisappear() {
+            document.stopTimer()
+        }
+        .onReceive(document.timer) { _ in
+            document.counter+=1
         }
         .alert(isPresented: self.$confirmBackgroundPaste) {
             Alert(
