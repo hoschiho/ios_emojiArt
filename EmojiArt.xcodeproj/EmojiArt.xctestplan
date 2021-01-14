@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "985174D8-0E2D-470A-AD7B-83F07660F312",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EmojiArt.xcodeproj",
+        "identifier" : "B522134125B053D500A02FA3",
+        "name" : "EmojiArtTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EmojiArt.xcodeproj",
+        "identifier" : "B5C0E81D25B0F55C006F72BE",
+        "name" : "EmojiArtUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
