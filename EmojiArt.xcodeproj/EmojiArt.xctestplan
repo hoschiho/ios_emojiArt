@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "985174D8-0E2D-470A-AD7B-83F07660F312",
+      "id" : "FBF0FDFD-6100-4CC4-84CE-E27FA28EE5CF",
       "name" : "Configuration 1",
       "options" : {
 
@@ -15,14 +15,14 @@
     {
       "target" : {
         "containerPath" : "container:EmojiArt.xcodeproj",
-        "identifier" : "B522134125B053D500A02FA3",
+        "identifier" : "A6D913E125B1A0E400F7547E",
         "name" : "EmojiArtTests"
       }
     },
     {
       "target" : {
         "containerPath" : "container:EmojiArt.xcodeproj",
-        "identifier" : "B5C0E81D25B0F55C006F72BE",
+        "identifier" : "A6D913F125B1A0F400F7547E",
         "name" : "EmojiArtUITests"
       }
     }

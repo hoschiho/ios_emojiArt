@@ -4,7 +4,6 @@
 //
 //  Created by Hanna Lisa Franz on 14.01.21.
 //
-
 import XCTest
 
 class EmojiArtDocumentChooserTest: XCTestCase {
@@ -39,4 +38,3 @@ class EmojiArtDocumentChooserTest: XCTestCase {
 
        }
    }
-
